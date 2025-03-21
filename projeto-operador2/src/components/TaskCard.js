@@ -10,21 +10,22 @@ export default function TaskCard({task, onEdit, onDelete}) {
 
   return (
     <View style={styles.card}>
-        <View style={styles.iconContainer}>{category.icon(24, "#fff")}</View>
+        <FontAwesome name={category.icon} size={24} color="#fff" style={styles.icon}/>
+        {/* <View style={styles.iconContainer}>{category.icon(24, "#fff")}</View> */}
 
         <View style={styles.textContainer}>
             <Text style={styles.taskTitle}>{task.title}</Text>
-            <Text style={styles.taskCategory}>{category.label}</Text>
+            <Text style={styles.category}>{TASK_CATEGORIES[task.category]?.label}</Text>
         </View>
 
-        <View style={styles.actions}>
-            <TouchableOpacity onPress={onEdit}>
-                <FontAwesome name="edit" size={20} color="#007bff"/>
+        
+            <TouchableOpacity onPress={onEdit} style={styles.iconButton}>
+                <FontAwesome name="edit" size={20} color="#fff"/>
             </TouchableOpacity>
-            <TouchableOpacity onPress={onDelete} style={{marginLeft: 10}}>
-                <FontAwesome name="trash" size={20} color="#dc3545"/>
+            <TouchableOpacity onPress={onDelete} style={styles.iconButton}>
+                <FontAwesome name="trash" size={20} color="#ff4d4d"/>
             </TouchableOpacity>
-        </View>
+        
     </View>
   )
 }
@@ -33,30 +34,39 @@ const styles = StyleSheet.create({
     card:{
         flexDirection: "row",
         alignItems: "center",
-        backgroundColor: "#2c2c2c",
+        backgroundColor: "#222",
         padding: 15,
         borderRadius: 10,
         marginVertical: 8,
     },
-    iconContainer:{
-        marginRight: 10,
-        backgroundColor: "#444",
-        padding: 10,
-        borderRadius: 50,
-    },
+    
     textContainer:{
         flex:1,
+        marginLeft:10
+    },
+    title:{
+        color: "#fff",
+        fontSize: 16,
+        fontWeight: "bold"
+    },
+    category:{
+        color:"#aaa",
+        fontSize:14
+    },
+    iconButton:{
+        marginLeft: 10,
+        padding: 5
     },
     taskTitle:{
         fontSize: 16,
         fontWeight: "bold",
         color: "#fff",
     },
-    taskCategory:{
-        fontSize: 12,
-        color: "#aaa",
-    },
-    actions:{
-        flexDirection:"row",
-    },
+    // taskCategory:{
+    //     fontSize: 12,
+    //     color: "#aaa",
+    // },
+    // actions:{
+    //     flexDirection:"row",
+    // },
 })
