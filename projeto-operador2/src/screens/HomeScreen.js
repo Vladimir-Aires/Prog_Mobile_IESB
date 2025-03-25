@@ -1,14 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, FlatList, StyleSheet, TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import TaskCard from "../components/TaskCard";
+import {saveTasks, loadTasks} from "../services/storage";
 
 export default function HomeScreen({ navigation }) {
-    const [tasks, setTasks] = useState([
-        { id: "1", title: "Comprar comida", category: "personal" },
-        { id: "2", title: "Combinar projeto", category: "work" },
-        { id: "3", title: "Estudar React Native", category: "study" },
-    ]);
+    const [tasks, setTasks] = useState([]);
+
+    useEffect(() => {
+        async function fetchTasks(){
+            const storedTasks = await loadTasks();
+            setTasks(storedTasks);
+        };
+        fetchTasks();
+    }, []);
+
+    useEffect(() => {
+        saveTasks(tasks);
+    }, [tasks])
 
     function handleAddTask(newTask) {
         setTasks([...tasks, newTask]);

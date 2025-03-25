@@ -6,7 +6,7 @@ import { FontAwesome } from "@expo/vector-icons"
 
 
 export default function TaskCard({task, onEdit, onDelete}) {
-    const category = TASK_CATEGORIES[task.category];
+    const category = TASK_CATEGORIES[task.category] || TASK_CATEGORIES.personal;
 
   return (
     <View style={styles.card}>

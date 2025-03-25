@@ -19,7 +19,7 @@ export default function AddTaskScreen({navigation, route}) {
     <View style={styles.container}>
         <Text style={styles.label}>Título da Tarefa:</Text>
         <TextInput 
-        styles={styles.input}
+        style={styles.input}
         placeholder="Digite o título..."
         placeholderTextColor="#aaa"
         value={title}
@@ -55,10 +55,11 @@ const styles = StyleSheet.create({
     },
     input:{
         backgroundColor:"#222",
-        color:"#fff",
+        color:"white",
         padding:10,
         borderRadius: 5,
         marginBottom: 15,
+       
     },
     picker:{
         backgroundColor:"#222",
