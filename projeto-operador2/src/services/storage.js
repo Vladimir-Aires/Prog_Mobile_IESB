@@ -18,6 +18,7 @@ export async function loadTasks(){
         return tasks.map(task => ({
             ...task,
             category: task.category || "personal",
+            completed: task.completed ?? false
         }))
     }catch(error){
         console.error("Erro ao carregar tarefas: ",error);

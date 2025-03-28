@@ -20,7 +20,7 @@ export default function HomeScreen({ navigation }) {
     }, [tasks])
 
     function handleAddTask(newTask) {
-        setTasks([...tasks, newTask]);
+        setTasks([...tasks, {...newTask, completed: false}]);
     }
 
     function handleEditTask(editedTask) {
@@ -31,6 +31,12 @@ export default function HomeScreen({ navigation }) {
 
     function handleDelete(taskId) {
         setTasks(tasks.filter((task) => task.id !== taskId));
+    }
+
+    function toggleComplete(taskId){
+        setTasks(
+            tasks.map((task) => task.id === taskId ? {...task, completed: !task.completed} : task)
+        )
     }
     return (
         <View style={styles.container}>
@@ -47,6 +53,7 @@ export default function HomeScreen({ navigation }) {
                             })
                         }
                         onDelete={() => handleDelete(item.id)}
+                        onToggleComplete={toggleComplete}
                     />
                 )}
             />
