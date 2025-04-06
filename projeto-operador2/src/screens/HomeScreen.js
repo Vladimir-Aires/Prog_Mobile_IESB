@@ -78,6 +78,7 @@ export default function HomeScreen({ navigation }) {
                         }
                         onDelete={() => handleDelete(item.id)}
                         onToggleComplete={toggleComplete}
+                        onDetails={() => navigation.navigate("TaskDetails", {task: item, toggleComplete})}
                     />
                 )}
             />

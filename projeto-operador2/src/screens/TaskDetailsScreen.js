@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
 import React from 'react'
 import {FontAwesome} from "@expo/vector-icons"
-import categories from "../utils/categories"
+import { TASK_CATEGORIES } from '../utils/categories'
 
 export default function TaskDetailsScreen({route, navigation}) {
 
@@ -13,8 +13,8 @@ export default function TaskDetailsScreen({route, navigation}) {
       <Text style={styles.description}>{task.description}</Text>
 
       <View style={styles.categoryContainer}>
-        <FontAwesome name={categories[task.category]?.icon} size={20} color="#fff"/>
-        <Text style={styles.categoryText}>{categories[task.category]?.label}</Text>
+        <FontAwesome name={TASK_CATEGORIES[task.category]?.icon} size={20} color="#fff"/>
+        <Text style={styles.categoryText}>{TASK_CATEGORIES[task.category]?.label}</Text>
       </View>
 
       <Text style={styles.status}>
