@@ -32,8 +32,9 @@ export default function TitulosScreen() {
                     <Card style={styles.card}>
                         <Title>{item.nome}</Title>
                         <Divider />
-                        {item.anos?.map((ano) => (
-                            <Paragraph>{ano}</Paragraph>
+                        {item.anos.map((ano, index) => (
+
+                            <Paragraph>{index + 1} - {ano}</Paragraph>
                         ))}
                     </Card>
                 )}
