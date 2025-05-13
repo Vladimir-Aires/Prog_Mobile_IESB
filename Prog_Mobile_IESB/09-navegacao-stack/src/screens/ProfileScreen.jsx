@@ -16,6 +16,13 @@ export default function ProfileScreen(props) {
       >
         Ir para Config Screen
       </Button>
+
+      <Button
+        mode='contained-tonal'
+        onPress={() => navigation.goBack()}
+      >
+        Voltar
+      </Button>
     </View>
   )
 }
