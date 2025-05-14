@@ -2,6 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 import {Text} from "react-native-paper"
 import NomeNumero from './components/NomeNumero';
+import Controle from './components/Controle';
+import NumeroAleatorio from './components/NumeroAleatorio';
 
 export default function App() {
   return (
@@ -18,6 +20,8 @@ export default function App() {
       </View>
 
       <NomeNumero />
+      <Controle />
+      <NumeroAleatorio />
       
       
     </View>
