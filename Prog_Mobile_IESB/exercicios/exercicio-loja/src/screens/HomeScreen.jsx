@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { StyleSheet, View, FlatList } from "react-native";
 
-import { Text, Card, Avatar, Button, Divider } from "react-native-paper";
+import { Text, Card, Avatar, IconButton, Divider } from "react-native-paper";
 
 export default function HomeScreen({navigation, route}) {
 
@@ -20,13 +20,13 @@ export default function HomeScreen({navigation, route}) {
 
 
     return (
-        <View>
+        <View style={styles.container}>
             <FlatList 
                 data={produtos}
                 renderItem={({item}) => (
-                    <Card>
-                        <Card.Title title={item}
-                        right={() => <Button onPress={() => navigation.navigate('ListaProdutosScreen', item)}>Descobrir</Button>}
+                    <Card style={styles.card}>
+                        <Card.Title title={item.charAt(0).toUpperCase() + item.slice(1)}
+                        right={() => <IconButton onPress={() => navigation.navigate('ListaProdutosScreen', item)} icon={'chevron-right-circle-outline'}/>}
                         />
                     </Card>
                 )}
@@ -35,4 +35,13 @@ export default function HomeScreen({navigation, route}) {
     );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    container:{
+        backgroundColor: "#413A36"
+    },
+    card:{
+        margin: 15,
+        marginBottom: 5,
+        backgroundColor: '#EB6'
+    }
+});

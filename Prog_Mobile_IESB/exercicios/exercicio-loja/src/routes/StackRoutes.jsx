@@ -14,6 +14,7 @@ export default function StackRoutes() {
                 options={{
                     title: "Categorias",
                     headerTitleAlign: "center",
+                    
                 }}
             />
             <Stack.Screen
