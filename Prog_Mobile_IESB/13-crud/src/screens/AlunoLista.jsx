@@ -1,28 +1,31 @@
 import { FlatList, StyleSheet, View } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {Card, Button, Text} from 'react-native-paper'
+import AlunosService from '../../service/AlunosService'
+
 
 export default function AlunoLista({navigation, route}) {
 
-  const [alunos, setAlunos] = useState([
-    {
-      id: 1,
-      nome: 'Teste',
-      cpf: '84518651',
-      email: 'ijohgyh@gmail.com',
-      dataNasc: '77/77/7777',
-      telefone: '4865168451'
-    },
+  const [alunos, setAlunos] = useState([])
 
-    {
-      id: 2,
-      nome: 'Teste 2',
-      cpf: '84518651',
-      email: 'ijohgyh@gmail.com',
-      dataNasc: '77/77/7777',
-      telefone: '4865168451'
-    }
-  ])
+
+  useEffect(() => {
+    buscarAlunos()
+  }, [])
+
+  async function buscarAlunos(){
+    const listaAlunos = await AlunosService.listar()
+    setAlunos(listaAlunos)
+
+
+  }  
+
+  async function removerAluno(){
+    await AlunosService.remover(id)
+    alert('Aluno excluído com sucesso!')
+    buscarAlunos()
+  }
+  
   return (
     <View style={styles.container}>
       <Button style={{margin: 5}}mode='contained'onPress={() => navigation.navigate('AlunosForm')} icon={'plus'} >Cadastrar</Button>
@@ -38,8 +41,9 @@ export default function AlunoLista({navigation, route}) {
               <Text>{`Email: ${item.email}`}</Text>
             </Card.Content>
             <Card.Actions>
-              <Button>Editar</Button>
-              <Button>Excluir</Button>
+              <Button icon='pencil' onPress={() => navigation.navigate('AlunoForm', item)}/>
+              <Button icon='delete' onPress={() => removerAluno(item['id'])}/>
+              
             </Card.Actions>
           </Card>
         )}
@@ -54,5 +58,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#eee",
     flex: 1,
     padding: 10
-  }
+  },
+  
 })
