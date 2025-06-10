@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "06-lib-de-componentes",
-    "slug": "06-lib-de-componentes",
+    "name": "007-estados-municipios",
+    "slug": "007-estados-municipios",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -19,7 +19,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "edgeToEdgeEnabled": true
     },
     "web": {
       "favicon": "./assets/favicon.png"
