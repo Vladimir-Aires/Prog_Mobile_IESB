@@ -1,7 +1,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,reactnative
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,reactnative
 
+
+
 ### ReactNative ###
+
 # React Native Stack Base
 
 .expo
