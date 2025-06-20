@@ -2,47 +2,25 @@ import { FlatList, StatusBar, StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useState } from "react";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import axios from "axios";
+import Slider from "../../components/Slider";
+import { ScrollView } from "react-native-gesture-handler";
 
 export default function HomeScreen() {
-    const [products, setProducts] = useState([]);
-
-    const mainCategories = [
-        "laptops",
-        "mens-watches",
-        "mobile-accessories",
-        "smartphones",
-        "tablets",
-        "womens-watches",
-    ];
-
-    useEffect(() => {
-        axios
-            .get("https://dummyjson.com/products?limit=200")
-            .then((res) => {
-                const prod = res.data["products"];
-                const filter = prod.filter((product) =>
-                    mainCategories.includes(product["category"])
-                );
-                setProducts(filter);
-                
-            })
-            .catch((error) => console.log(error));
-    }, []);
+   
 
     return (
-        <View>
-            {/* Carrossel improvisado com flatlist */}
+        <View style={styles.container}>
+            {/* Carrossel improvisado com flatlist | Dados de tablets para teste */}
+            <Slider category="laptops"/>
+            {/* Flatlist horizontal de produtos | Dados de smartphones para teste*/}
+           
 
-            {/* Flatlist horizontal de produtos */}
-            <FlatList
-                data={products}
-                renderItem={({ item }) => <Text>{item["title"]}</Text>}
-            />
-
-            {/* FlatList horizontal de produtos em promoção */}
-            <Text>HomeScreen</Text>
+            {/* FlatList horizontal de produtos em promoção | Dados de acessórios mobile para teste*/}
+            
         </View>
     );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+
+});
