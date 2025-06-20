@@ -102,8 +102,5 @@ const Slider = ({ category, title }) => {
 export default Slider;
 
 const styles = StyleSheet.create({
-    // container:{
-    //   width: '70%',
-    //   height: '60%'
-    // }
+   
 });

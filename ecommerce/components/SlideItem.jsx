@@ -11,6 +11,8 @@ import React from 'react';
 
 const {width, height} = Dimensions.get('screen');
 
+const SLIDER_HEIGHT = Dimensions.get('screen').height * 0.27
+
 const SlideItem = ({item}) => {
   const translateYImage = new Animated.Value(40);
 
@@ -38,11 +40,7 @@ const SlideItem = ({item}) => {
         ]}
       />
 
-      <View style={styles.content}>
-        <Text style={styles.title}>{item.title}</Text>
-        <Text style={styles.description}>{item.description}</Text>
-        <Text style={styles.price}>{item.price}</Text>
-      </View>
+     
     </View>
   );
 };
@@ -52,29 +50,32 @@ export default SlideItem;
 const styles = StyleSheet.create({
   container: {
     width,
-    height,
+    height: SLIDER_HEIGHT,
     alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#332B2B'
   },
   image: {
-    flex: 0.6,
-    width: '100%',
+    flex: 1,
+    width: '90%',
   },
   content: {
-    flex: 0.4,
+    flex: 0.3,
     alignItems: 'center',
+    paddingHorizontal: 10,
+    justifyContent: 'center'
   },
   title: {
-    fontSize: 24,
+    fontSize: 18,
     fontWeight: 'bold',
     color: '#333',
+    textAlign: 'center'
   },
   description: {
-    fontSize: 18,
-    marginVertical: 12,
-    color: '#333',
+    textAlign: 'center'
   },
   price: {
-    fontSize: 32,
+    fontSize: 20,
     fontWeight: 'bold',
   },
 });

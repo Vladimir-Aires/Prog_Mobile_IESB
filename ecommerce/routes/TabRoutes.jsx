@@ -6,6 +6,7 @@ import ProfileScreen from "../screens/TabScreens/ProfileScreen";
 import { Button, StatusBar, StyleSheet, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import {AntDesign} from 'react-native-vector-icons'
+import { CategoriesStack } from "./StackRoutes";
 
 const Tab = createBottomTabNavigator();
 
@@ -36,14 +37,14 @@ export default function TabRoutes() {
             <Tab.Screen
                 name="Home"
                 component={HomeScreen}
-                options={{ headerRight: () => <CustomHeaderRight />,
+                options={{
                 tabBarIcon: ({color, size}) => (
                   <AntDesign name='home' color={color} size={size}/>
                 )
               }}
             />
 
-            <Tab.Screen name="Categories" component={CategoryScreen} options={{
+            <Tab.Screen name="Categories" component={CategoriesStack} options={{
                tabBarIcon: ({color, size}) => (
                   <AntDesign name='bars' color={color} size={size}/>
                 )

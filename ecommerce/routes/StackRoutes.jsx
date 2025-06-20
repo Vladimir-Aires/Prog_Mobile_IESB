@@ -1,11 +1,27 @@
 import { createStackNavigator } from "@react-navigation/stack";
+import CategoryScreen from "../screens/TabScreens/CategoryScreen";
+import ProductsCategoryScreen from "../screens/StackScreens/ProductsCategoryScreen";
+import ProductDetailScreen from "../screens/StackScreens/ProductDetailScreen";
 
-const Stack = createStackNavigator()
+const Stack = createStackNavigator();
 
-export default function StackRoutes(){
-  return (
-    <Stack.Navigator>
-      
-    </Stack.Navigator>
-  )
+export function CategoriesStack() {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen
+                name="Discover"
+                component={CategoryScreen}
+               
+            />
+            <Stack.Screen
+                name="ProductsCategoryScreen"
+                component={ProductsCategoryScreen}
+            />
+            <Stack.Screen
+                name="ProductDetail"
+                component={ProductDetailScreen}
+                options={{title: "Details"}}
+            />
+        </Stack.Navigator>
+    );
 }
